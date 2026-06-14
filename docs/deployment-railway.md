@@ -54,7 +54,7 @@ Use Railway variable references where possible.
 ```text
 APP_NAME="SmartRH Maroc"
 APP_ENV=production
-APP_KEY=base64:GENERATE_WITH_ARTISAN_KEY_GENERATE
+APP_KEY=
 APP_DEBUG=false
 APP_URL=https://YOUR-RAILWAY-DOMAIN.up.railway.app
 FORCE_HTTPS=true
@@ -194,7 +194,7 @@ MAIL_SCHEME=smtp
 MAIL_HOST=smtp-relay.brevo.com
 MAIL_PORT=587
 MAIL_USERNAME=YOUR_BREVO_LOGIN
-MAIL_PASSWORD=YOUR_BREVO_SMTP_KEY
+MAIL_PASSWORD=
 MAIL_FROM_ADDRESS=verified-sender@example.com
 MAIL_FROM_NAME="${APP_NAME}"
 ```

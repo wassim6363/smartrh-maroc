@@ -37,7 +37,7 @@ class SmartRhDeploymentCheck extends Command
         });
 
         $driver = DB::connection()->getDriverName();
-        $this->warnIf($driver !== 'pgsql', 'Database driver is ' . $driver . '; Railway production should use pgsql.');
+        $this->warnIf(! in_array($driver, ['mysql', 'pgsql'], true), 'Database driver is ' . $driver . '; production should use mysql or pgsql.');
         $this->check('Sessions table exists', fn (): bool => Schema::hasTable(config('session.table', 'sessions')));
         $this->check('Cache table exists', fn (): bool => Schema::hasTable(config('cache.stores.database.table', 'cache')));
         $this->check('Cache locks table exists', fn (): bool => Schema::hasTable(config('cache.stores.database.lock_table', 'cache_locks') ?: 'cache_locks'));

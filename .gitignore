@@ -4,6 +4,8 @@
 /public/hot
 /public/storage
 /database/*.sqlite
+/database/demo-export
+/dist
 /storage/*.key
 /storage/app/private/*
 /storage/app/public/*
