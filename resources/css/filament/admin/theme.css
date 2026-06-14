@@ -1,0 +1,849 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+@source '../../../../vendor/filament/**/*';
+
+/* SmartRH Maroc admin dark theme. Scoped to Filament classes to preserve Livewire controls. */
+:root {
+    color-scheme: dark;
+    --sr-deep-teal-main: #0B2E33;
+    --sr-deep-teal: #0F3D3E;
+    --sr-primary: #0F766E;
+    --sr-primary-hover: #0F5F59;
+    --sr-mint: #14B8A6;
+    --sr-gold: #D4A72C;
+    --sr-gold-soft: #F3C969;
+    --sr-bg: #0B1220;
+    --sr-panel: #111827;
+    --sr-card: #182235;
+    --sr-card-hover: #1F2C42;
+    --sr-border: #2B3A52;
+    --sr-field: #111827;
+    --sr-field-border: #374151;
+    --sr-text: #F8FAFC;
+    --sr-text-secondary: #CBD5E1;
+    --sr-text-muted: #94A3B8;
+    --sr-success: #16A34A;
+    --sr-danger: #DC2626;
+    --sr-danger-soft: #FCA5A5;
+    --sr-focus: rgba(20, 184, 166, .26);
+    --sr-shadow: 0 20px 44px rgba(0, 0, 0, .28);
+    --sr-shadow-soft: 0 1px 2px rgba(0, 0, 0, .22);
+}
+
+.fi-body,
+.fi-main,
+.fi-page {
+    background:
+        radial-gradient(circle at top left, rgba(20, 184, 166, .08), transparent 32rem),
+        radial-gradient(circle at top right, rgba(212, 167, 44, .055), transparent 28rem),
+        var(--sr-bg);
+    color: var(--sr-text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.fi-main {
+    min-height: 100vh;
+}
+
+.fi-body,
+.fi-page,
+.fi-main-ctn,
+.fi-layout,
+.fi-page-content,
+.fi-resource-list-records-page,
+.fi-resource-edit-record-page,
+.fi-resource-create-record-page,
+.fi-dashboard-page {
+    color: var(--sr-text);
+}
+
+/* Sidebar */
+.fi-sidebar {
+    background: linear-gradient(180deg, var(--sr-deep-teal) 0%, var(--sr-deep-teal-main) 100%);
+    border-inline-end: 1px solid rgba(243, 201, 105, .12);
+    box-shadow: 18px 0 36px rgba(0, 0, 0, .18);
+    width: 260px;
+}
+
+.fi-sidebar-header {
+    align-items: center;
+    background:
+        linear-gradient(135deg, rgba(20, 184, 166, .18), transparent 56%),
+        linear-gradient(135deg, #0F3D3E 0%, #0F766E 100%);
+    border: 1px solid rgba(243, 201, 105, .22);
+    border-radius: 16px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(248, 250, 252, .08);
+    display: flex;
+    margin: .85rem .8rem .55rem;
+    min-height: 72px;
+    overflow: hidden;
+    padding: .8rem .95rem;
+    position: relative;
+}
+
+.fi-sidebar-header::before {
+    background: linear-gradient(180deg, var(--sr-gold), rgba(212, 167, 44, .2));
+    border-radius: 999px;
+    content: "";
+    height: 42px;
+    inset-inline-end: .65rem;
+    opacity: .8;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+}
+
+.fi-sidebar-header::after {
+    color: var(--sr-text);
+    content: "SmartRH\A Maroc";
+    font-size: .76rem;
+    font-weight: 760;
+    inset-inline-start: 4.75rem;
+    letter-spacing: .01em;
+    line-height: 1.1;
+    pointer-events: none;
+    position: absolute;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .28);
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: pre;
+}
+
+.fi-sidebar-header::first-line {
+    font-size: 1rem;
+    font-weight: 850;
+}
+
+.fi-sidebar .fi-logo,
+.fi-sidebar .fi-logo a,
+.fi-sidebar .fi-logo .fi-logo-text {
+    color: #FFFFFF;
+    font-weight: 780;
+    letter-spacing: 0;
+}
+
+.fi-logo {
+    object-fit: contain;
+    object-position: left center;
+    width: auto;
+}
+
+.fi-sidebar .fi-logo {
+    background: rgba(248, 250, 252, .95);
+    border: 1px solid rgba(248, 250, 252, .72);
+    border-radius: 13px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .20);
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .18));
+    height: 42px;
+    max-height: 42px;
+    max-width: 42px;
+    min-width: 42px;
+    object-fit: contain;
+    padding: .34rem;
+    position: relative;
+    width: 42px;
+    z-index: 1;
+}
+
+.fi-simple-layout .fi-logo,
+.fi-simple-main .fi-logo {
+    filter: drop-shadow(0 10px 20px rgba(20, 184, 166, .22));
+    max-width: 96px;
+}
+
+.fi-sidebar-group-label {
+    color: var(--sr-text-muted);
+    font-size: .68rem;
+    font-weight: 740;
+    letter-spacing: .075em;
+    text-transform: uppercase;
+}
+
+.fi-sidebar-item-btn {
+    border-radius: 9px;
+    color: var(--sr-text-secondary);
+    font-size: .875rem;
+    font-weight: 580;
+    transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+
+.fi-sidebar-item-btn:hover {
+    background: #145B57;
+    color: #FFFFFF;
+}
+
+.fi-sidebar-item.fi-active .fi-sidebar-item-btn,
+.fi-sidebar-item-active .fi-sidebar-item-btn {
+    background: var(--sr-primary);
+    box-shadow: inset 3px 0 0 var(--sr-gold);
+    color: #FFFFFF;
+}
+
+.fi-sidebar-item-icon,
+.fi-sidebar-item-label {
+    color: inherit;
+}
+
+.fi-sidebar-close-overlay {
+    background: rgba(11, 18, 32, .66);
+}
+
+/* Topbar and headers */
+.fi-topbar-ctn {
+    background: rgba(17, 24, 39, .96);
+    border-bottom: 1px solid var(--sr-border);
+    backdrop-filter: blur(12px);
+}
+
+.fi-topbar {
+    min-height: 56px;
+}
+
+.fi-global-search .fi-input,
+.fi-ta-header-toolbar .fi-input {
+    background: #1F2937;
+    border-color: #374151;
+    color: var(--sr-text);
+}
+
+.fi-global-search .fi-input::placeholder,
+.fi-ta-header-toolbar .fi-input::placeholder {
+    color: var(--sr-text-muted);
+}
+
+.fi-header {
+    padding-top: 1.4rem;
+}
+
+.fi-header-heading,
+.fi-simple-header-heading {
+    color: var(--sr-text);
+    font-weight: 780;
+    letter-spacing: 0;
+}
+
+.fi-header-subheading,
+.fi-simple-header-subheading,
+.fi-section-header-description,
+.fi-wi-header-description,
+.fi-wi-stats-overview-stat-description {
+    color: var(--sr-text-secondary);
+}
+
+/* Premium dark surfaces */
+.fi-section,
+.fi-wi,
+.fi-ta-ctn,
+.fi-modal-window,
+.fi-simple-main,
+.fi-in-entry-wrp,
+.fi-fo-component-ctn,
+.fi-fo-repeater-item {
+    background: var(--sr-card);
+    border: 1px solid var(--sr-border);
+    border-radius: 14px;
+    box-shadow: var(--sr-shadow-soft);
+    color: var(--sr-text);
+}
+
+.fi-section:hover,
+.fi-wi:hover,
+.fi-wi-stats-overview-stat:hover {
+    border-color: rgba(20, 184, 166, .42);
+}
+
+.fi-section-header,
+.fi-section-content,
+.fi-wi-header,
+.fi-wi-body {
+    color: var(--sr-text);
+}
+
+.fi-section-header-heading,
+.fi-wi-header-heading,
+.fi-in-entry-wrp-label {
+    color: var(--sr-text);
+    font-weight: 700;
+}
+
+.fi-section.fi-section-not-contained {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Buttons */
+.fi-btn,
+.fi-icon-btn {
+    border-radius: 10px;
+    font-weight: 680;
+    transition: background .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+}
+
+.fi-btn.fi-color-primary,
+.fi-btn.fi-color-info {
+    background: var(--sr-primary);
+    border-color: transparent;
+    color: #FFFFFF;
+}
+
+.fi-btn.fi-color-primary:hover,
+.fi-btn.fi-color-info:hover {
+    background: var(--sr-primary-hover);
+    box-shadow: 0 10px 26px rgba(15, 118, 110, .28);
+}
+
+.fi-btn.fi-color-success {
+    background: var(--sr-success);
+    color: #FFFFFF;
+}
+
+.fi-btn.fi-color-warning {
+    background: var(--sr-gold);
+    color: #111827;
+}
+
+.fi-btn.fi-color-gray,
+.fi-icon-btn.fi-color-gray {
+    background: #1F2937;
+    border: 1px solid #374151;
+    color: var(--sr-text);
+}
+
+.fi-btn.fi-color-gray:hover,
+.fi-icon-btn.fi-color-gray:hover {
+    background: var(--sr-card-hover);
+    color: #FFFFFF;
+}
+
+.fi-btn.fi-color-danger {
+    background: transparent;
+    border: 1px solid rgba(220, 38, 38, .72);
+    color: var(--sr-danger-soft);
+}
+
+.fi-btn.fi-color-danger:hover {
+    background: rgba(220, 38, 38, .16);
+    border-color: var(--sr-danger);
+    color: #FFFFFF;
+}
+
+.fi-modal-footer .fi-btn.fi-color-danger {
+    background: var(--sr-danger);
+    color: #FFFFFF;
+}
+
+/* Forms */
+.fi-input,
+.fi-select-input,
+.fi-textarea,
+.fi-fo-file-upload,
+.fi-fo-date-time-picker input {
+    background: var(--sr-field);
+    border-color: var(--sr-field-border);
+    border-radius: 10px;
+    color: var(--sr-text);
+}
+
+.fi-checkbox-input,
+.fi-radio-input {
+    accent-color: var(--sr-primary);
+    background: var(--sr-field);
+    border-color: var(--sr-field-border);
+}
+
+.fi-fo-repeater,
+.fi-fo-builder,
+.fi-fo-builder-block,
+.fi-fo-repeater-item-header,
+.fi-fo-file-upload .filepond--root,
+.fi-fo-file-upload .filepond--panel-root,
+.fi-fo-date-time-picker-panel,
+.fi-select-dropdown,
+.fi-dropdown-panel {
+    background: var(--sr-card);
+    border-color: var(--sr-border);
+    color: var(--sr-text);
+}
+
+.fi-input::placeholder,
+.fi-textarea::placeholder {
+    color: var(--sr-text-muted);
+}
+
+.fi-input:focus,
+.fi-select-input:focus,
+.fi-textarea:focus {
+    border-color: var(--sr-mint);
+    box-shadow: 0 0 0 3px var(--sr-focus);
+}
+
+.fi-fieldset,
+.fi-fo-field-wrp,
+.fi-fo-field-wrp-label,
+.fi-label {
+    color: var(--sr-text);
+}
+
+.fi-fo-field-wrp-label,
+.fi-label {
+    font-weight: 660;
+}
+
+.fi-fo-field-wrp-helper-text,
+.fi-fo-field-wrp-hint,
+.fi-description,
+.fi-in-text,
+.fi-in-entry-wrp-helper-text {
+    color: var(--sr-text-muted);
+}
+
+.fi-fo-field-wrp-error-message {
+    color: var(--sr-danger-soft);
+}
+
+/* Tabs and employee form */
+.fi-tabs:not(.fi-contained) {
+    background: transparent;
+    box-shadow: none;
+    gap: 4px;
+}
+
+.fi-tabs-item {
+    border-radius: 8px;
+    color: var(--sr-text-muted);
+}
+
+.fi-tabs-item:hover {
+    background: #123C3A;
+    color: var(--sr-text);
+}
+
+.fi-tabs-item.fi-active {
+    background: #0F3D3E;
+}
+
+.fi-tabs-item.fi-active .fi-tabs-item-label {
+    color: var(--sr-mint);
+}
+
+.fi-resource-employees .fi-sc-tabs {
+    background: var(--sr-card);
+    border: 1px solid var(--sr-border);
+    border-radius: 14px;
+    box-shadow: var(--sr-shadow-soft);
+    overflow: hidden;
+}
+
+.fi-resource-employees .fi-tabs:not(.fi-contained) {
+    background: var(--sr-panel);
+    border-bottom: 1px solid var(--sr-border);
+    overflow-x: auto;
+    padding: 14px 18px 0;
+    scrollbar-width: thin;
+}
+
+.fi-resource-employees .fi-sc-tabs .fi-section.fi-section-not-contained:not(:last-of-type) {
+    border-bottom: 1px solid var(--sr-border);
+}
+
+.sr-employee-profile-section .fi-section-content-ctn {
+    padding-top: .75rem;
+}
+
+.sr-employee-profile-card {
+    align-items: center;
+    background: linear-gradient(135deg, var(--sr-card), #142E38);
+    border: 1px solid var(--sr-border);
+    border-radius: 12px;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto minmax(180px, 1fr) repeat(3, minmax(110px, auto));
+    padding: 1rem;
+}
+
+.sr-employee-avatar {
+    align-items: center;
+    background: linear-gradient(135deg, var(--sr-primary), var(--sr-mint));
+    border: 1px solid rgba(243, 201, 105, .34);
+    border-radius: 10px;
+    color: #FFFFFF;
+    display: flex;
+    font-weight: 800;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: .03em;
+    width: 48px;
+}
+
+.sr-employee-name {
+    color: var(--sr-text);
+    font-size: 1rem;
+    font-weight: 780;
+}
+
+.sr-employee-meta {
+    color: var(--sr-text-secondary);
+    font-size: .82rem;
+    margin-top: .15rem;
+}
+
+.sr-employee-kpi {
+    border-inline-start: 1px solid var(--sr-border);
+    padding-inline-start: .9rem;
+}
+
+.sr-employee-kpi span {
+    color: var(--sr-text-muted);
+    display: block;
+    font-size: .68rem;
+    font-weight: 720;
+    letter-spacing: .045em;
+    text-transform: uppercase;
+}
+
+.sr-employee-kpi strong {
+    color: var(--sr-text);
+    display: block;
+    font-size: .85rem;
+    margin-top: .16rem;
+}
+
+.fi-sc-actions.fi-sticky .fi-ac {
+    background: rgba(17, 24, 39, .96);
+    border-top: 1px solid var(--sr-border);
+    box-shadow: 0 -8px 22px rgba(0, 0, 0, .24);
+}
+
+/* Tables */
+.fi-ta-ctn {
+    background: var(--sr-card);
+    border-color: var(--sr-border);
+    overflow: hidden;
+}
+
+.fi-ta-header-toolbar,
+.fi-pagination,
+.fi-ta-filter-indicators,
+.fi-ta-selection-indicator {
+    background: var(--sr-panel);
+    border-color: var(--sr-border);
+    color: var(--sr-text-secondary);
+}
+
+.fi-ta-header-cell {
+    background: var(--sr-panel);
+    border-bottom: 1px solid var(--sr-border);
+    color: var(--sr-text-secondary);
+    font-size: .74rem;
+    font-weight: 740;
+    letter-spacing: .045em;
+    text-transform: uppercase;
+}
+
+.fi-ta-row {
+    background: var(--sr-card);
+    color: var(--sr-text);
+    transition: background .12s ease;
+}
+
+.fi-ta-row:hover {
+    background: var(--sr-card-hover);
+}
+
+.fi-ta-cell {
+    border-bottom: 1px solid rgba(43, 58, 82, .86);
+    color: var(--sr-text);
+}
+
+.fi-ta-text-item,
+.fi-ta-text-item-label {
+    color: var(--sr-text);
+}
+
+.fi-ta-text-description,
+.fi-ta-text-list-limited-message,
+.fi-ta-placeholder {
+    color: var(--sr-text-secondary);
+}
+
+.fi-ta-actions .fi-dropdown-trigger button:hover {
+    background: var(--sr-card-hover);
+    color: var(--sr-text);
+}
+
+.fi-ta-empty-state {
+    background: linear-gradient(180deg, var(--sr-card) 0%, var(--sr-panel) 100%);
+}
+
+.fi-ta-empty-state .fi-ta-empty-state-heading {
+    color: var(--sr-text);
+}
+
+.fi-ta-empty-state .fi-ta-empty-state-description {
+    color: var(--sr-text-secondary);
+}
+
+/* Payroll preview page */
+.sr-payroll-preview .fi-section-content,
+.sr-payroll-result .fi-section-content {
+    color: var(--sr-text);
+}
+
+.sr-payroll-field {
+    color: var(--sr-text-secondary);
+}
+
+.sr-payroll-field span {
+    color: var(--sr-text-secondary);
+}
+
+.sr-payroll-input {
+    background: var(--sr-field);
+    border: 1px solid var(--sr-field-border);
+    color: var(--sr-text);
+}
+
+.sr-payroll-table-wrap {
+    background: var(--sr-card);
+    border: 1px solid var(--sr-border);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .02);
+}
+
+.sr-payroll-items-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    color: var(--sr-text);
+}
+
+.sr-payroll-items-table thead {
+    background: var(--sr-panel);
+}
+
+.sr-payroll-items-table th {
+    border-bottom: 1px solid var(--sr-border);
+    color: var(--sr-text-secondary);
+    font-size: .72rem;
+    font-weight: 760;
+    letter-spacing: .045em;
+    text-transform: uppercase;
+}
+
+.sr-payroll-items-table tbody tr {
+    background: var(--sr-card);
+    transition: background .12s ease;
+}
+
+.sr-payroll-items-table tbody tr:hover {
+    background: var(--sr-card-hover);
+}
+
+.sr-payroll-items-table td {
+    border-bottom: 1px solid rgba(43, 58, 82, .86);
+}
+
+.sr-payroll-checkbox {
+    accent-color: var(--sr-primary);
+    height: 1rem;
+    width: 1rem;
+}
+
+.sr-payroll-result-list dt {
+    color: var(--sr-text-secondary);
+}
+
+.sr-payroll-result-list dd {
+    color: var(--sr-text);
+}
+
+.sr-payroll-net {
+    background: linear-gradient(135deg, rgba(15, 118, 110, .22), rgba(20, 184, 166, .12));
+    border: 1px solid rgba(20, 184, 166, .34);
+    color: #D1FAE5;
+}
+
+.sr-payroll-net .font-bold {
+    color: #FFFFFF;
+}
+
+.sr-payroll-empty {
+    color: var(--sr-text-muted);
+}
+
+.sr-payroll-generated {
+    background: rgba(22, 163, 74, .14);
+    border: 1px solid rgba(22, 163, 74, .32);
+    color: #BBF7D0;
+}
+
+/* Badges */
+.fi-badge {
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.fi-badge.fi-color-success {
+    background: rgba(22, 163, 74, .15);
+    color: #86EFAC;
+}
+
+.fi-badge.fi-color-warning {
+    background: rgba(212, 167, 44, .15);
+    color: var(--sr-gold-soft);
+}
+
+.fi-badge.fi-color-danger {
+    background: rgba(220, 38, 38, .15);
+    color: var(--sr-danger-soft);
+}
+
+.fi-badge.fi-color-info,
+.fi-badge.fi-color-primary {
+    background: rgba(20, 184, 166, .15);
+    color: #5EEAD4;
+}
+
+.fi-badge.fi-color-gray {
+    background: rgba(148, 163, 184, .14);
+    color: var(--sr-text-secondary);
+}
+
+/* Dashboard widgets and charts */
+.fi-wi-stats-overview-stat {
+    background: linear-gradient(180deg, var(--sr-card), #151F31);
+    border: 1px solid var(--sr-border);
+    border-radius: 14px;
+    box-shadow: var(--sr-shadow-soft);
+    min-height: 124px;
+}
+
+.fi-wi-stats-overview-stat-icon-ctn {
+    background: rgba(20, 184, 166, .12);
+    border: 1px solid rgba(20, 184, 166, .24);
+    color: var(--sr-mint);
+}
+
+.fi-wi-stats-overview-stat-value {
+    color: var(--sr-text);
+    font-weight: 800;
+}
+
+.fi-wi-stats-overview-stat-label {
+    color: var(--sr-text-secondary);
+}
+
+.fi-wi-onboarding {
+    background:
+        linear-gradient(135deg, rgba(20, 184, 166, .10), rgba(212, 167, 44, .08)),
+        var(--sr-card);
+    border-color: var(--sr-border);
+}
+
+.fi-wi-chart canvas {
+    background: transparent;
+}
+
+/* Menus, modals, notifications */
+.fi-dropdown-panel,
+.fi-modal-window,
+.fi-notification {
+    background: var(--sr-card);
+    border: 1px solid var(--sr-border);
+    border-radius: 12px;
+    box-shadow: var(--sr-shadow);
+    color: var(--sr-text);
+}
+
+.fi-dropdown-list-item {
+    border-radius: 8px;
+    color: var(--sr-text);
+}
+
+.fi-dropdown-list-item:hover {
+    background: var(--sr-card-hover);
+    color: #FFFFFF;
+}
+
+.fi-modal-header,
+.fi-modal-footer,
+.fi-dropdown-header,
+.fi-dropdown-footer {
+    background: var(--sr-card);
+    border-color: var(--sr-border);
+    color: var(--sr-text);
+}
+
+.fi-dropdown-list-item-label,
+.fi-modal-heading,
+.fi-modal-description,
+.fi-notification-title,
+.fi-notification-body {
+    color: var(--sr-text);
+}
+
+.fi-modal-description,
+.fi-notification-body {
+    color: var(--sr-text-secondary);
+}
+
+.fi-simple-main {
+    box-shadow: var(--sr-shadow);
+}
+
+/* Existing table text visibility workaround, scoped to table/dropdown text only. */
+.fi-dropdown-header span {
+    color: var(--sr-text-secondary);
+    flex: 1;
+    overflow: hidden;
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fi-ta-cell .fi-ta-text-item:not(.fi-color) {
+    color: var(--sr-text);
+}
+
+.fi-ta-cell .fi-ta-text-item:not(.fi-color) span {
+    color: inherit;
+}
+
+@media (max-width: 1023px) {
+    .fi-sidebar {
+        width: 280px;
+    }
+
+    .fi-header {
+        padding-inline: 1rem;
+    }
+
+    .sr-employee-profile-card {
+        grid-template-columns: auto 1fr;
+    }
+
+    .sr-employee-kpi {
+        border-inline-start: 0;
+        border-top: 1px solid var(--sr-border);
+        padding-block-start: .75rem;
+        padding-inline-start: 0;
+    }
+}
+
+@media (max-width: 639px) {
+    .fi-header-heading {
+        font-size: 1.14rem;
+    }
+
+    .fi-resource-employees .fi-tabs:not(.fi-contained) {
+        padding-inline: 12px;
+    }
+
+    .fi-btn {
+        min-height: 38px;
+    }
+}
